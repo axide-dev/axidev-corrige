@@ -86,35 +86,50 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
+            gcc \
+            pkg-config \
             libgl1-mesa-dev \
+            libgles2-mesa-dev \
+            libegl1-mesa-dev \
             xorg-dev \
             libx11-dev \
+            libx11-xcb-dev \
             libxcursor-dev \
             libxrandr-dev \
             libxinerama-dev \
             libxi-dev \
-            libxxf86vm-dev \
             libxkbcommon-dev \
+            libxkbcommon-x11-dev \
+            libxxf86vm-dev \
             libwayland-dev \
-            libwayland-egl1-mesa-dev
+            libwayland-egl1-mesa-dev \
+            libffi-dev \
+            libvulkan-dev
 
           # Install cross-compilation toolchain for ARM64
           if [ "${{ matrix.arch }}" == "arm64" ]; then
             sudo dpkg --add-architecture arm64
             sudo apt-get update
-            sudo apt-get install -y \
+                sudo apt-get install -y \
                 gcc-aarch64-linux-gnu \
                 g++-aarch64-linux-gnu \
+                pkg-config:arm64 \
                 libgl1-mesa-dev:arm64 \
+                libgles2-mesa-dev:arm64 \
+                libegl1-mesa-dev:arm64 \
                 libx11-dev:arm64 \
+                libx11-xcb-dev:arm64 \
                 libxcursor-dev:arm64 \
                 libxrandr-dev:arm64 \
                 libxinerama-dev:arm64 \
                 libxi-dev:arm64 \
-                libxxf86vm-dev:arm64 \
                 libxkbcommon-dev:arm64 \
+                libxkbcommon-x11-dev:arm64 \
+                libxxf86vm-dev:arm64 \
                 libwayland-dev:arm64 \
                 libwayland-egl1-mesa-dev:arm64 \
+                libffi-dev:arm64 \
+                libvulkan-dev:arm64 \
                 libudev-dev:arm64 \
                 libinput-dev:arm64 \
                 libstdc++-13-dev:arm64

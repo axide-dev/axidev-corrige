@@ -196,7 +196,7 @@ jobs:
           GOARCH: ${{ matrix.goarch }}
           CC: clang-cl.exe
           CXX: clang-cl.exe
-          CGO_CFLAGS: -Wno-error=unknown-argument -Wno-error=unused-macros
+          CGO_CFLAGS: -Wno-error=unknown-argument -Wno-error=unused-macros -Wno-error=reserved-identifier
           CGO_LDFLAGS: -Wno-error=unknown-argument
         run: |
           $vsPath = (vswhere -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath).Trim()

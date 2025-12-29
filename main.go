@@ -3,7 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
+	"gioui.org/app"
 	typrio "github.com/ziedyousfi/typr-io-go"
 )
 
@@ -33,19 +35,20 @@ func main() {
 		}
 	}
 
-	// Create window and get text display
-	window, text := CreateTypingWindow()
+	// Create overlay window
+	overlay := NewOverlayWindow()
 
-	// Create current word tracker with sender for auto-correction
-	cw := NewCurrentWord(text, sc, sender)
+	// Create current word tracker
+	cw := NewCurrentWord(overlay, sc, sender)
 
-	// Start keyboard listener
+	// Initialize keyboard listener
 	listener, err := typrio.NewListener()
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer listener.Close()
 
+	// Start keyboard listener in goroutine
 	go func() {
 		err = listener.Start(cw.Callback)
 		if err != nil {
@@ -53,5 +56,14 @@ func main() {
 		}
 	}()
 
-	window.ShowAndRun()
+	// Run overlay in goroutine (Gio requirement)
+	go func() {
+		if err := overlay.Run(); err != nil {
+			log.Fatal(err)
+		}
+		os.Exit(0)
+	}()
+
+	// Gio main loop (must be on main thread)
+	app.Main()
 }

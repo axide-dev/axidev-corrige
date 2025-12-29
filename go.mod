@@ -3,12 +3,16 @@ module github.com/ziedyousfi/typr-correct
 go 1.25.5
 
 require fyne.io/fyne/v2 v2.7.1
+
 require github.com/ziedyousfi/typr-io-go v0.2.0
 
 require (
 	fyne.io/systray v1.11.1-0.20250603113521-ca66a66d8b58 // indirect
 	github.com/BurntSushi/toml v1.5.0 // indirect
+	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/f1monkey/bitmap v1.4.0 // indirect
+	github.com/f1monkey/spellchecker/v3 v3.0.0 // indirect
 	github.com/fredbi/uri v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/fyne-io/gl-js v0.2.0 // indirect

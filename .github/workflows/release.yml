@@ -60,17 +60,6 @@ jobs:
         run: |
           wails build -platform darwin/${{ matrix.goarch }} -o axidev-corrige-darwin-${{ matrix.arch }}
 
-      - name: Extract macOS executable
-        run: |
-          app=build/bin/axidev-corrige-${{ matrix.arch }}.app
-          src="$app/Contents/MacOS/axidev-corrige"
-          dst=build/bin/axidev-corrige-darwin-${{ matrix.arch }}
-          if [ ! -f "$src" ]; then
-            echo "Missing bundled binary: $src"
-            exit 1
-          fi
-          cp "$src" "$dst"
-
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:

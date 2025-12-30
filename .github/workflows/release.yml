@@ -143,7 +143,7 @@ jobs:
           CC: ${{ matrix.cc }}
           CGO_LDFLAGS: "-lstdc++"
         run: |
-          wails build -platform linux/${{ matrix.goarch }} -o axidev-corrige-linux-${{ matrix.arch }} -tags webkit2gtk_41
+          wails build -platform linux/${{ matrix.goarch }} -o axidev-corrige-linux-${{ matrix.arch }} -tags webkit2_41
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

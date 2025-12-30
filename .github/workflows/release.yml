@@ -58,7 +58,6 @@ jobs:
           name: axidev-corrige-darwin-${{ matrix.arch }}
           path: axidev-corrige-darwin-${{ matrix.arch }}
 
-
   build-linux:
     name: Build Linux
     runs-on: ${{ matrix.runs-on }}
@@ -143,7 +142,6 @@ jobs:
           name: axidev-corrige-linux-${{ matrix.arch }}
           path: axidev-corrige-linux-${{ matrix.arch }}
 
-
   build-windows:
     name: Build Windows
     runs-on: windows-latest
@@ -152,6 +150,8 @@ jobs:
         include:
           - arch: amd64
             goarch: amd64
+          - arch: arm64
+            goarch: arm64
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -171,13 +171,29 @@ jobs:
             echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
           fi
 
-      - name: Build binary with MinGW
+      - name: Set up LLVM-MinGW
+        shell: bash
+        run: |
+          VERSION="20240619"
+          URL="https://github.com/mstorsjo/llvm-mingw/releases/download/${VERSION}/llvm-mingw-${VERSION}-ucrt-x86_64.zip"
+          curl -L -o llvm-mingw.zip "$URL"
+          7z x llvm-mingw.zip -y > /dev/null
+          echo "${{ github.workspace }}/llvm-mingw-${VERSION}-ucrt-x86_64/bin" >> $GITHUB_PATH
+
+          if [ "${{ matrix.arch }}" = "arm64" ]; then
+            echo "CC=aarch64-w64-mingw32-clang" >> $GITHUB_ENV
+            echo "CXX=aarch64-w64-mingw32-clang++" >> $GITHUB_ENV
+          else
+            echo "CC=x86_64-w64-mingw32-clang" >> $GITHUB_ENV
+            echo "CXX=x86_64-w64-mingw32-clang++" >> $GITHUB_ENV
+          fi
+
+      - name: Build binary with LLVM-MinGW
         shell: bash
         env:
           CGO_ENABLED: 1
           GOOS: windows
           GOARCH: ${{ matrix.goarch }}
-          CC: gcc
         run: |
           go build -o axidev-corrige-windows-${{ matrix.arch }}.exe .
 
@@ -221,6 +237,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: axidev-corrige-windows-amd64
+          path: ./artifacts
+
+      - name: Download windows-arm64 artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: axidev-corrige-windows-arm64
           path: ./artifacts
 
       - name: Upload darwin-amd64 to release
@@ -271,4 +293,14 @@ jobs:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./artifacts/axidev-corrige-windows-amd64.exe
           asset_name: axidev-corrige-windows-amd64.exe
+          asset_content_type: application/octet-stream
+
+      - name: Upload windows-arm64 to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./artifacts/axidev-corrige-windows-arm64.exe
+          asset_name: axidev-corrige-windows-arm64.exe
           asset_content_type: application/octet-stream

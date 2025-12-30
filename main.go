@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"gioui.org/app"
-	typrio "github.com/ziedyousfi/typr-io-go"
+	typrio "github.com/ziedyousfi/axidev-io-go"
 )
 
 func main() {

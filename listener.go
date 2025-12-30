@@ -6,7 +6,7 @@ import (
 	"time"
 
 	spellchecker "github.com/f1monkey/spellchecker/v3"
-	typrio "github.com/ziedyousfi/typr-io-go"
+	typrio "github.com/ziedyousfi/axidev-io-go"
 )
 
 type CurrentWord struct {

@@ -21,12 +21,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/testify v1.11.1 h1:7s2iGBzp5EwR7/aIZr8ao5+dra3wiQyKjjFuvgVKu7U=
 github.com/stretchr/testify v1.11.1/go.mod h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U=
-github.com/ziedyousfi/typr-io-go v0.2.1 h1:nb22dEtsY4bZJyzRc5W3gzJD3RMyvmLN+fKqPv4QNEg=
-github.com/ziedyousfi/typr-io-go v0.2.1/go.mod h1:Gy6XbxWERxv4fZiuTnB4RilJ8ZBTMBE5V/9rgkGLNH0=
-github.com/ziedyousfi/typr-io-go v0.2.2 h1:+Qorm+S+PWNaUb+i4XHcnFvtmUpP0xKvYCJlV27iR/A=
-github.com/ziedyousfi/typr-io-go v0.2.2/go.mod h1:Gy6XbxWERxv4fZiuTnB4RilJ8ZBTMBE5V/9rgkGLNH0=
-github.com/ziedyousfi/typr-io-go v0.2.3 h1:Wo3D884dekilQekeIdN/qUXC5CwdsSImezWTs8a5P2M=
-github.com/ziedyousfi/typr-io-go v0.2.3/go.mod h1:Gy6XbxWERxv4fZiuTnB4RilJ8ZBTMBE5V/9rgkGLNH0=
+github.com/ziedyousfi/axidev-io-go v0.3.0 h1:3OeVW0Y0H9FStlshk4LJl56kQ4OQ9IjxksXGnLQs/lA=
+github.com/ziedyousfi/axidev-io-go v0.3.0/go.mod h1:Br6TabEkeEhDfG9RtjMdov+HY9e2nRb+nTy3+n+bhCo=
 golang.org/x/exp v0.0.0-20250408133849-7e4ce0ab07d0 h1:R84qjqJb5nVJMxqWYb3np9L5ZsaDtB+a39EqjV0JSUM=
 golang.org/x/exp v0.0.0-20250408133849-7e4ce0ab07d0/go.mod h1:S9Xr4PYopiDyqSyp5NjCrhFrqg6A5zA2E/iPHPhqnS8=
 golang.org/x/exp/shiny v0.0.0-20250408133849-7e4ce0ab07d0 h1:tMSqXTK+AQdW3LpCbfatHSRPHeW6+2WuxaVQuHftn80=

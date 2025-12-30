@@ -2,7 +2,7 @@ module github.com/ziedyousfi/axidev-corrige
 
 go 1.25.5
 
-require github.com/ziedyousfi/axidev-io-go v0.2.4
+require github.com/ziedyousfi/axidev-io-go v0.3.0
 
 require (
 	gioui.org/shader v1.0.8 // indirect

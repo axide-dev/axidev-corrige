@@ -1,7 +1,7 @@
 {
   "$schema": "https://wails.io/schemas/config.v2.json",
-  "name": "typr-correct",
-  "outputfilename": "typr-correct",
+  "name": "axidev-corrige",
+  "outputfilename": "axidev-corrige",
   "frontend:install": "",
   "frontend:build": "",
   "frontend:dev:watcher": "",

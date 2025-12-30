@@ -31,7 +31,7 @@ func main() {
 
 	// Create Wails application
 	err = wails.Run(&options.App{
-		Title:  "Axidev Correct",
+		Title:  "Axidev Corrige",
 		Width:  400,
 		Height: 100,
 		AssetServer: &assetserver.Options{

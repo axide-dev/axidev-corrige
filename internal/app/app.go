@@ -6,11 +6,11 @@ import (
 	"log"
 	"time"
 
-	"github.com/ziedyousfi/axidev-corrige/internal/checker"
-	"github.com/ziedyousfi/axidev-corrige/internal/display"
-	"github.com/ziedyousfi/axidev-corrige/internal/input"
-	"github.com/ziedyousfi/axidev-corrige/internal/state"
-	"github.com/ziedyousfi/axidev-corrige/internal/writing"
+	"github.com/axide-dev/axidev-corrige/internal/checker"
+	"github.com/axide-dev/axidev-corrige/internal/display"
+	"github.com/axide-dev/axidev-corrige/internal/input"
+	"github.com/axide-dev/axidev-corrige/internal/state"
+	"github.com/axide-dev/axidev-corrige/internal/writing"
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 	"github.com/ziedyousfi/axidev-io-go/keyboard"

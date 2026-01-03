@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/ziedyousfi/axidev-corrige/internal/app"
+	"github.com/axide-dev/axidev-corrige/internal/app"
 
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"

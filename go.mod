@@ -1,4 +1,4 @@
-module github.com/ziedyousfi/axidev-corrige
+module github.com/axide-dev/axidev-corrige
 
 go 1.25.5
 

@@ -4,4 +4,4 @@ node_modules
 dist
 .DS_Store
 axidev-corrige
-francais.txt
+**/francais.txt

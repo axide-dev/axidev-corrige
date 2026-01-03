@@ -112,7 +112,10 @@ func (c *Checker) Suggest(word string, maxSuggestions int) []Suggestion {
 func (c *Checker) BestSuggestion(word string) string {
 	suggestions := c.Suggest(word, 1)
 	if len(suggestions) > 0 {
-		return suggestions[0].Value
+		
+		if suggestions[0].Score > 0.8 {
+			return suggestions[0].Value
+		}
 	}
 	return ""
 }

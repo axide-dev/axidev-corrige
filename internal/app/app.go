@@ -174,10 +174,13 @@ func (a *App) handleWordComplete() {
 
 		if len(result.Suggestions) > 0 {
 			words := make([]string, len(result.Suggestions))
+			score := make([]float64, len(result.Suggestions))
 			for i, s := range result.Suggestions {
 				words[i] = s.Value
+				score[i] = s.Score
 			}
 			fmt.Printf("Suggestions: %v\n", words)
+			fmt.Printf("Scores: %v\n", score)
 
 			// Perform auto-correction
 			if a.input != nil && a.input.CanSend() {
